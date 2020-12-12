@@ -1,5 +1,5 @@
 import React from 'react'
-import { Provider, useDispatch, useSelector } from 'react-redux'
+import { Provider } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +7,7 @@ import {
   Link,
 } from 'react-router-dom'
 import store from './state/store'
-import { createPayment } from './state/payments'
+import Add from './pages/Add/Add'
 
 export default () => (
   <Provider store={store}>
@@ -16,8 +16,8 @@ export default () => (
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/example">
-          <Example />
+        <Route path="/add">
+          <Add />
         </Route>
       </Switch>
     </Router>
@@ -27,25 +27,6 @@ export default () => (
 const Home = () => (
   <div>
     <h2>Home</h2>
-    <Link to="/example">Go to /example</Link>
+    <Link to="/add">Add a bill</Link>
   </div>
 )
-
-const Example = () => {
-  const dispatch = useDispatch()
-  const payments = useSelector(store => store.payments)
-
-  const exampleAddPayment = () => dispatch(createPayment({
-    name: 'Hello World',
-  }))
-
-  return (
-    <div>
-      <h2>Example</h2>
-      {payments.map((payment, index) => (
-        <p key={index}>{payment.name}</p>
-      ))}
-      <button onClick={exampleAddPayment}>Add Payment</button>
-    </div>
-  )
-}

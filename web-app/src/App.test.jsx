@@ -7,3 +7,9 @@ it('renders title text', () => {
 
   expect(getByText('Home')).toBeInTheDocument()
 })
+
+it('renders Add a bill button', () => {
+  const { getByText } = render(<App />)
+
+  expect(getByText('Add a bill')).toBeInTheDocument()
+})
