@@ -1,0 +1,16 @@
+.button {
+  border-radius: 50px;
+  background-color: #00cd50;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 90%;
+  display: block;
+  margin: auto;
+  font-family: 'Hind', sans-serif;
+  font-size: 20px;
+
+  &:disabled {
+    background-color: #d0d5dc;
+  }
+}

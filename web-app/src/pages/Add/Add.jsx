@@ -4,13 +4,17 @@ import Layout from '../../common/Layout/Layout'
 import {FREQUENCY} from './constants';
 import { createPayment } from '../../state/payments';
 
+import Button from '../../common/Button/Button'
+
+import styles from './Add.module.scss'
+
 const Add = () => {
   const dispatch = useDispatch()
 
   const [name, setName] = useState('')
   const [amount, setAmount] = useState('')
   const [startDate, setStartDate] = useState('')
-  const [frequency, setFrequency] = useState('weekly')
+  const [frequency, setFrequency] = useState('')
 
   const formReady = (
     name !== '' &&
@@ -30,11 +34,12 @@ const Add = () => {
 
   return (
     <Layout title="Add A Bill">
-      <h2>Enter your details</h2>
-      <p>Keep track of your household spending by adding your bills</p>
+      <h2 className={styles.title}>Enter your details</h2>
+      <p className={styles.description}>Keep track of your household spending by adding your bills</p>
       <div>
         <div>
           <input
+            className={styles.input}
             type="text"
             placeholder="Name"
             name="name"
@@ -44,6 +49,7 @@ const Add = () => {
         </div>
         <div>
           <input
+            className={styles.input}
             type="number"
             placeholder="Amount"
             name="amount"
@@ -53,6 +59,7 @@ const Add = () => {
         </div>
         <div>
           <input
+            className={styles.input}
             type="text"
             placeholder="Start dates (DD/MM/YYYY)"
             name="startdate"
@@ -61,25 +68,27 @@ const Add = () => {
           />
         </div>
         <div>
-          <label htmlFor="frequency">Frequency</label>
           <select
+            className={styles.select}
             name="frequency"
             id="frequency"
             value={frequency}
             onChange={e => setFrequency(e.target.value)}
           >
+            <option value="">Frequency</option>
             <option value={FREQUENCY.WEEKLY}>Every week</option>
             <option value={FREQUENCY.MONTHLY}>Every month</option>
             <option value={FREQUENCY.ANNUALLY}>Every year</option>
           </select>
         </div>
         <div>
-          <button
+          <Button
+            className={styles.button}
             disabled={!formReady}
             onClick={handleAddPaymentClick}
           >
             Add new payment
-          </button>
+          </Button>
         </div>
       </div>
     </Layout>
