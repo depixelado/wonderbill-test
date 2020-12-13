@@ -1,11 +1,13 @@
+@import '../../styles/variables';
+
 .title {
-  color: #445368;
+  color: $grey-darker;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: $space-small;
 }
 
 .description {
-  color: #8d99aa;
+  color: $grey;
   text-align: center;
   margin-top: 0;
   font-size: 22px;
@@ -16,27 +18,40 @@
   padding: 10px 20px;
   margin-bottom: 20px;
   border: none;
-  border-bottom: 1px solid #d0d5dc;
-  font-family: 'Hind', sans-serif;
+  border-bottom: 1px solid $grey-lighter;
+  font-family: $font-family;
   font-size: 20px;
-  color: #8d99aa;
+  color: $grey;
   background: white;
   
   &::placeholder {
-    color: #8d99aa;
+    color: $grey;
+  }
+}
+
+.datepickerNoContent {
+  &:before {
+    content: attr(placeholder) !important;
+    color: $grey;
+    margin-right: $space-small;
+  }
+
+  &:focus:before,
+  &:valid:before {
+    content: "";
   }
 }
 
 .select {
   width: 100%;
-  padding: 10px 20px;
-  font-size: 20px;
-  color: #8d99aa;
-  font-family: 'Hind', sans-serif;
+  padding: $space-small $space;
+  font-size: $font-size-regular;
+  color: $grey;
+  font-family: $font-family;
   border: none;
-  border-bottom: 1px solid #d0d5dc;
+  border-bottom: 1px solid $grey-lighter;
 }
 
 .button {
-  margin-top: 40px;
+  margin-top: $space-big;
 }

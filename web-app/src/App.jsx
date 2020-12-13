@@ -3,11 +3,11 @@ import { Provider } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
+  Route, 
 } from 'react-router-dom'
 import store from './state/store'
 import Add from './pages/Add/Add'
+import Home from './pages/Home/Home'
 
 export default () => (
   <Provider store={store}>
@@ -22,11 +22,4 @@ export default () => (
       </Switch>
     </Router>
   </Provider>
-)
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-    <Link to="/add">Add a bill</Link>
-  </div>
 )

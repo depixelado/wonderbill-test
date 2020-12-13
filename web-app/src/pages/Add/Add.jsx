@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Layout from '../../common/Layout/Layout'
-import {FREQUENCY} from './constants';
+import {FREQUENCY} from '../../utils/constants';
 import { createPayment } from '../../state/payments';
 
 import Button from '../../common/Button/Button'
@@ -59,9 +59,9 @@ const Add = () => {
         </div>
         <div>
           <input
-            className={styles.input}
-            type="text"
-            placeholder="Start dates (DD/MM/YYYY)"
+            className={`${styles.input} ${startDate === '' && styles.datepickerNoContent}`}
+            type="date"
+            placeholder="Start date"
             name="startdate"
             value={startDate}
             onChange={e => setStartDate(e.target.value)}
@@ -70,6 +70,7 @@ const Add = () => {
         <div>
           <select
             className={styles.select}
+            data-testid="frequency"
             name="frequency"
             id="frequency"
             value={frequency}

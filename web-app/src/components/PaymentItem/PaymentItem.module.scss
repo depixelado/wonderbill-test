@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+.paymentItem {
+  padding: $space-small;
+}
+
+.row {
+  display: flex;
+
+  & > div {
+    width: 50%;
+  }
+}
+
+.name, .frequency {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.amount, .nextDate {
+  text-align: right;
+}
+
+.name, .amount {
+  color: $grey-darker;
+  font-size: $font-size-big;
+}
+
+.frequency, .nextDate {
+  color: $grey;
+  font-size: $font-size-small;
+}

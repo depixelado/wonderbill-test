@@ -5,7 +5,7 @@ import App from './App'
 it('renders title text', () => {
   const { getByText } = render(<App />)
 
-  expect(getByText('Home')).toBeInTheDocument()
+  expect(getByText('Regular Payments')).toBeInTheDocument()
 })
 
 it('renders Add a bill button', () => {

@@ -2,8 +2,8 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import {Provider} from 'react-redux'
 import Add from './Add'
-import { createPayment } from '../../state/payments'
 import store from '../../state/store'
+import {FREQUENCY} from '../../utils/constants'
 
 describe('Add page', () => {
   it('renders title text', () => {
@@ -20,7 +20,7 @@ describe('Add page', () => {
     const {
       getByText,
       getByPlaceholderText,
-      getByLabelText
+      getByTestId
     } = render(
       <Provider store={store}>
         <Add />
@@ -32,8 +32,8 @@ describe('Add page', () => {
     
     expect(getByPlaceholderText('Name')).toBeInTheDocument()
     expect(getByPlaceholderText('Amount')).toBeInTheDocument()
-    expect(getByPlaceholderText('Start dates (DD/MM/YYYY)')).toBeInTheDocument()
-    expect(getByLabelText('Frequency')).toBeInTheDocument()
+    expect(getByPlaceholderText('Start date')).toBeInTheDocument()
+    expect(getByTestId('frequency')).toBeInTheDocument()
   
     expect(getByText('Add new payment')).toBeInTheDocument()
   })
@@ -52,7 +52,7 @@ describe('Add page', () => {
     const {
       getByText,
       getByPlaceholderText,
-      getByLabelText
+      getByTestId
     } = render(
       <Provider store={store}>
         <Add />
@@ -61,15 +61,15 @@ describe('Add page', () => {
 
     const nameInput = getByPlaceholderText('Name')
     const amountInput = getByPlaceholderText('Amount')
-    const startDateInput = getByPlaceholderText('Start dates (DD/MM/YYYY)')
-    const frequencyInput = getByLabelText('Frequency')
+    const startDateInput = getByPlaceholderText('Start date')
+    const frequencyInput = getByTestId('frequency')
     const addButton = getByText('Add new payment')
 
     // Act 
     fireEvent.change(nameInput, { target: { value: "Test name" } })
     fireEvent.change(amountInput, { target: { value: "500" } })
-    fireEvent.change(startDateInput, { target: { value: "07/12/2020" } })
-    fireEvent.change(frequencyInput, { target: { value: "weekly" } })
+    fireEvent.change(startDateInput, { target: { value: "2020-10-07" } })
+    fireEvent.change(frequencyInput, { target: { value: FREQUENCY.WEEKLY } })
   
     // Assert
     expect(addButton.disabled).toBe(false)

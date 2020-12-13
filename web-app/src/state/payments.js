@@ -3,10 +3,12 @@ import paymentsAPI from '../api/payments'
 
 export const createPayment = createAsyncThunk(
   'payments/createPayment',
-  async (payment) => {
-    const response = await paymentsAPI.createPayment(payment)
-    return response;
-  }
+  async (payment) => await paymentsAPI.createPayment(payment)
+)
+
+export const getPayments = createAsyncThunk(
+  'payments/getPayments',
+  async() => await paymentsAPI.getPayments()
 )
 
 const paymentsSlice = createSlice({
@@ -18,7 +20,11 @@ const paymentsSlice = createSlice({
   },
   extraReducers: {
     [createPayment.fulfilled]: (state, action) => {
-      state.push(action.payload)
+      state = [...state, action.payload]
+    },
+    [getPayments.fulfilled]: (state, action) => {
+      state = action.payload
+      return state
     }
   }
 })

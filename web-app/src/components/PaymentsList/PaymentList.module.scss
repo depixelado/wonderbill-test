@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.paymentsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: $space-big;
+}
+
+.paymentItem {
+  border-bottom: 1px solid $grey-lighter;
+}
