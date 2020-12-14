@@ -53,7 +53,7 @@ const PaymentForm = ({
           mode === FORM_MODE.EDIT && 
           <label
             className={styles.label}
-            htmlFor="name" className={styles.label}
+            htmlFor="name"
           >Name</label>
         }
         <Input          
@@ -70,7 +70,7 @@ const PaymentForm = ({
           mode === FORM_MODE.EDIT && 
           <label
             className={styles.label}
-            htmlFor="amount" className={styles.label}
+            htmlFor="amount"
           >Amount</label>
         }
         <Input
@@ -87,7 +87,7 @@ const PaymentForm = ({
           mode === FORM_MODE.EDIT && 
           <label
             className={styles.label}
-            htmlFor="startDate" className={styles.label}
+            htmlFor="startDate"
           >Name</label>
         }
         <Input
@@ -105,7 +105,7 @@ const PaymentForm = ({
           mode === FORM_MODE.EDIT && 
           <label
             className={styles.label}
-            htmlFor="frequency" className={styles.label}
+            htmlFor="frequency"
           >Frequency</label>
         }
         <Select

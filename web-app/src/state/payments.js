@@ -48,8 +48,7 @@ const paymentsSlice = createSlice({
       state[action.payload.id] = action.payload
     },
     [deletePayment.fulfilled]: (state, action) => {
-      delete state[action.payload.id]
-      
+      delete state[action.payload]
       return state;
     }
   }
