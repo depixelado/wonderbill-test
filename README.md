@@ -1,5 +1,44 @@
 # README #
 
+## Installation ##
+
+In order to run this exercise. It will be needed to run both the app and the server. First, install the necessary dependencies
+
+```bash
+cd api
+npm install
+```
+
+```bash
+cd wep-app
+npm install
+```
+
+## Running the app ##
+
+Once all dependencies are installed. Run both the server and the web app.
+
+```bash
+// ./api
+npm start
+```
+
+```bash
+// ./web-app
+npm start
+```
+
+Running the app will automatically open a tab on your default browser
+
+### Exercise Considerations ###
+
+- PropTypes has been used as type-checking tool. [PropTypes documentation](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- Dates: I assumed it was desired to manipulate dates without libraries. [Momentjs](https://momentjs.com/) only used to display dates on the right format.
+- File structure: I structured the project as it was for a more scalable project in order to show that consideration. For this particular exsercise it could have been simplified.
+- PaymentForm reusability: This component could have been simplified by showing a similar form between adding a payment and editing a payment. I added 'mode' prop in order to show a more accurate representation of the designs
+
+## Exercise description ##
+
 At WonderBill we allow users to manually keep track of any regular payments.
 These payments could be anything, but common examples are rent and mortgage payments.
 
