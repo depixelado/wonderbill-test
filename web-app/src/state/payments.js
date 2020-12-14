@@ -55,5 +55,8 @@ const paymentsSlice = createSlice({
   }
 })
 
+export const getPaymentByIdSelector = id => state => state.payments[id];
+export const getPaymentsSelector = state => Object.values(state.payments)
+
 const { reducer } = paymentsSlice
 export default reducer

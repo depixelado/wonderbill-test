@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import LayoutPayment from '../../common/LayoutPayment/LayoutPayment'
 import PaymentForm, { FORM_MODE } from '../../components/PaymentForm/PaymentForm'
-import { getPayment, updatePayment, deletePayment } from '../../state/payments'
+import { getPayment, updatePayment, deletePayment, getPaymentByIdSelector } from '../../state/payments'
 
 const Payment = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const { id } = useParams()
-  const payment = useSelector(state => state.payments[id])
+  const payment = useSelector(getPaymentByIdSelector(id))
 
   useEffect(() => {
     dispatch(getPayment(id))
