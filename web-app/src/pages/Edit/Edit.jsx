@@ -25,20 +25,22 @@ const Payment = () => {
     history.push('/')
   }
 
-  if(!payment) return null;
-
   return (
     <LayoutPayment
       title="Edit A Bill"
-      subtitle={payment.name}
-      description="If you'd like to edit your bill you can change the details below"
+      subtitle={(payment && payment.name) || 'Payment not found'}
+      description={ payment ? "If you'd like to edit your bill you can change the details below" : '' }
     >
-      <PaymentForm
-        payment={payment}
-        mode={FORM_MODE.EDIT}
-        onSaveClick={handleSaveClick}
-        onDeleteClick={handleDeleteClick}
-      />
+      {
+         payment && (
+          <PaymentForm
+            payment={payment}
+            mode={FORM_MODE.EDIT}
+            onSaveClick={handleSaveClick}
+            onDeleteClick={handleDeleteClick}
+          />
+        )
+      }
     </LayoutPayment>
   )
 }

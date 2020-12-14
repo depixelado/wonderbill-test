@@ -37,6 +37,7 @@ Running the app will automatically open a tab on your default browser
 - File structure: I structured the project as it was for a more scalable project in order to show that consideration. For this particular exsercise it could have been simplified.
 - PaymentForm reusability: This component could have been simplified by showing a similar form between adding a payment and editing a payment. I added 'mode' prop in order to show a more accurate representation of the designs
 - Payments array change to object to take advantage of key value pattern and access payments in constant time (O(1)) instead of linear (O(n))
+- Styles: Used SCSS with module pattern where class names are scoped to the component to avoid collisions
 - Error management: I avoided managing async action error for the seek of the exsercise size. It was becoming to big and there is no designs nor requirements to do it.
 - Storing data: Data could have been stored with different values for price and date. For price it could have been a number value but no operation was required over that value. For date it could have been stored in a standard ISODate value but the currend value was enough for the exsercise, so avoided creating adaptors.
 

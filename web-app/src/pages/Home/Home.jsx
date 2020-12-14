@@ -6,6 +6,8 @@ import PaymentsList from '../../components/PaymentsList/PaymentsList'
 import {getPayments, getPaymentsSelector} from '../../state/payments'
 import { COLOR } from '../../utils/constants'
 
+import styles from './Home.module.scss'
+
 const Home = () => {
   const dispatch = useDispatch()
   const payments = useSelector(getPaymentsSelector)
@@ -17,9 +19,9 @@ const Home = () => {
   return (
     <Layout title="Regular Payments">
       {
-        payments 
+        payments && payments.length !== 0
           ? <PaymentsList payments={payments} />
-          : <div>No payments available.</div>
+          : <div className={styles.noPayments}>No payments available.</div>
       }
       <Button to="/add" color={COLOR.ACCEPT}>Add a bill</Button>
     </Layout>
