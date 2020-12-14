@@ -17,6 +17,7 @@ describe('Add page', () => {
         amount="500"
         startDate="2020-10-9"
         frequency={FREQUENCY.MONTHLY}
+        id="test-id"
       />
     )
 

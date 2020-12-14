@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.select {
+  width: 100%;
+  padding: 5px;
+  font-size: $font-size-regular;
+  color: $grey;
+  font-family: $font-family;
+  border: none;
+  border-bottom: 1px solid $grey-lighter;
+}

@@ -7,7 +7,6 @@
   margin: auto;
   border-radius: 50px;
   border: none;
-  background-color: $green;
   text-align: center;
   color: white;
   font-family: $font-family;
@@ -17,4 +16,12 @@
   &:disabled {
     background-color: $grey-lighter;
   }
+}
+
+.accept {
+  background-color: $green;
+}
+
+.caution {
+  background-color: $red;
 }

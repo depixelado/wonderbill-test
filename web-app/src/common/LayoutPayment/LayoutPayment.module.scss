@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+
+.subtitle {
+  color: $grey-darker;
+  text-align: center;
+  margin-bottom: $space-small;
+}
+
+.description {
+  color: $grey;
+  text-align: center;
+  margin-top: 0;
+  font-size: 22px;
+}

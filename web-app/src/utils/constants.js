@@ -3,3 +3,8 @@ export const FREQUENCY = Object.freeze({
   MONTHLY: 'monthly',
   ANNUALLY: 'annually'
 });
+
+export const COLOR = Object.freeze({
+  ACCEPT: 'accept',
+  CAUTION: 'caution'
+})

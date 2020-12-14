@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.input {
+  width: calc(100% - #{$space});
+  padding: $space-small;
+  margin-bottom: $space;
+  border: none;
+  border-bottom: 1px solid $grey-lighter;
+  font-family: $font-family;
+  font-size: $font-size-small;
+  color: $grey-darker;
+  background: white;
+  
+  &::placeholder {
+    color: $grey;
+  }
+}

@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+
+.datepickerNoContent {
+  &:before {
+    content: attr(placeholder) !important;
+    color: $grey;
+    margin-right: $space-small;
+  }
+
+  &:focus:before,
+  &:valid:before {
+    content: "";
+  }
+}
+
+.label {
+  font-size: 16px;
+  padding-left: 10px;
+  color: $grey;
+}
+
+.button {
+  margin-top: $space-big;
+}
+
+.buttonDelete {
+  margin-top: $space;
+}

@@ -11,24 +11,49 @@ export const getPayments = createAsyncThunk(
   async() => await paymentsAPI.getPayments()
 )
 
+export const getPayment = createAsyncThunk(
+  'payments/getPayment',
+  async(paymentId) => await paymentsAPI.getPayment(paymentId)
+)
+
+export const updatePayment = createAsyncThunk(
+  'payments/updatePayment',
+  async(payment) => await paymentsAPI.updatePayment(payment)
+)
+
+export const deletePayment = createAsyncThunk(
+  'payments/deletePayment',
+  async(paymentId) => await paymentsAPI.deletePayment(paymentId)
+)
+
 const paymentsSlice = createSlice({
   name: 'payments',
-  initialState: [],
-  reducers: {
-    updatePayment: (state, action) => console.log(action.payload),
-    deletePayment: (state, action) => console.log(action.payload),
-  },
+  initialState: {},
   extraReducers: {
     [createPayment.fulfilled]: (state, action) => {
-      state = [...state, action.payload]
+      state[action.payload.id] = action.payload
     },
     [getPayments.fulfilled]: (state, action) => {
-      state = action.payload
+      state = action.payload.reduce((acc, payment) => {
+        acc[payment.id] = payment;
+        return acc;
+      }, {})
+      
       return state
+    },
+    [getPayment.fulfilled]: (state, action) => {
+      state[action.payload.id] = action.payload
+    },
+    [updatePayment.fulfilled]: (state, action) => {
+      state[action.payload.id] = action.payload
+    },
+    [deletePayment.fulfilled]: (state, action) => {
+      delete state[action.payload.id]
+      
+      return state;
     }
   }
 })
 
-const { actions, reducer } = paymentsSlice
-export const { updatePayment, deletePayment } = actions
+const { reducer } = paymentsSlice
 export default reducer
